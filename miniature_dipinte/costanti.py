@@ -44,7 +44,7 @@ L4 = ['Tempesta di Magia',          # 0
 
 NUMERO_TOTALE_DI_MINIATURE = 300 # arrotondare per eccesso
 
-OFFSET_TRUPPE = 1 # 0 WHF - 1 WH40K
+OFFSET_TRUPPE = 2 # 1 WHF - 2 WH40K
 OFFSET_WHF_TRUPPE = 2
 OFFSET_WH40K_TRUPPE = 2
 

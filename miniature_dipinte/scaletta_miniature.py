@@ -14,29 +14,31 @@ def elenco_truppe():
     whf = elenco_truppe2(L1, 'whft', OFFSET_WHF_TRUPPE)
     wh40k = elenco_truppe2(L2, 'wh40kt', OFFSET_WH40K_TRUPPE)
     lwh = [whf, wh40k]
+    # pp(lwh)
 
     wh = itertools.cycle(range(2))
 
-##    for x in range(OFFSET_TRUPPE):
-##        wh.next()
     for i, x in enumerate(wh):
+
         if i >= OFFSET_TRUPPE:
             break
 
     miniature = []
     for n in range(NUMERO_TOTALE_DI_MINIATURE):
-##        for nn in range(2):
-##            e = wh.next()
+
         for i, e in enumerate(wh):
-            if i >= 2-1:
-                break
-        
+
             try:
+                print(i, e, n)
                 minia = lwh[e][n]
                 miniature.append(minia)
             except IndexError:
                 pass
-         
+
+            if i == 1:
+                break
+
+    # pp(miniature)
     return miniature
 
 
@@ -91,10 +93,12 @@ def aggiorna_date_truppe(elenco_truppe):
     data = truppa_in_corso.fine
 
     for minia in elenco_truppe:
+        # print(minia.nome)
         minia.inizio = data
         data += datetime.timedelta(minia.durata)
         minia.fine = data
         minia.save()
+
     
 def elenco_elite():
     eserciti = ('scc', 'df', 'bb',
@@ -160,15 +164,11 @@ def prossimi_dipinti_generale(tipi):
         neserciti = len(lista_esercito)
         iesercito = itertools.cycle(lista_esercito)
 
-##        for x in range(offset):
-##            iesercito.next()
         for i, x in enumerate(iesercito):
             if i >= offset - 1:
                 break
             
         lminia = []
-##        for x in range(neserciti):
-##            esercito = iesercito.next()
         for i, esercito in enumerate(iesercito):
             if i >= neserciti - 1:
                 break
