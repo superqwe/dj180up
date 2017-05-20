@@ -1,0 +1,31 @@
+{% extends "md_base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{titolo}}{% endblock %}
+
+{% block content %}
+
+
+<table>
+  {% for anno, lminiature in miniature %}
+    <tr>
+      <td>{{anno}}</td>
+    </tr>
+    <tr>
+    {% for miniatura in lminiature %}
+      <td class="s">
+        <div class="esercito {{miniatura.tipo}}">{{miniatura.esercito2}}
+             <div class="miniatura">{{miniatura.nome}} ({{miniatura.inizio|date:"m"}}-{{miniatura.fine|date:"m"}})</div>
+        </div>
+        <div class="immagine"><img src="{% static 'miniature_dipinte/' %}{{miniatura.immagine}}"/></div>
+      </td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

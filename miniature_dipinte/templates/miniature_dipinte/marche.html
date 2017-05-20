@@ -1,0 +1,72 @@
+{% extends "md_base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{titolo}}{% endblock %}
+
+{% block content %}
+
+
+<table>
+  {% for esercito, miniature in whf %}
+    <tr>
+      <td>{{esercito}}</td>
+    </tr>
+    <tr>
+    {% for miniatura in miniature %}
+
+      <td class="s">
+        <div class="esercito {{miniatura.tipo}}">{{miniatura.esercito2}}
+             <div class="miniatura">{{miniatura.nome}} ({{miniatura.inizio|date:"y"}})</div>
+        </div>
+        <div class="immagine"><img src="{% static 'miniature_dipinte/' %}{{miniatura.immagine}}"/></div>
+      </td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+
+</table>
+
+
+<table>
+  {% for esercito, miniature in wh40k %}
+    <tr>
+      <td>{{esercito}}</td>
+    </tr>
+    <tr>
+    {% for miniatura in miniature %}
+
+      <td class="s">
+        <div class="esercito {{miniatura.tipo}}">{{miniatura.esercito2}}
+             <div class="miniatura">{{miniatura.nome}} ({{miniatura.inizio|date:"y"}})</div>
+        </div>
+        <div class="immagine"><img src="{% static 'miniature_dipinte/' %}{{miniatura.immagine}}"/></div>
+      </td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+
+</table>
+
+
+<table>
+  {% for esercito, miniature in eserciti %}
+    <tr>
+      <td>{{esercito}}</td>
+    </tr>
+    <tr>
+    {% for miniatura in miniature %}
+
+      <td class="s">
+        <div class="esercito {{miniatura.tipo}}">{{miniatura.esercito2}}
+             <div class="miniatura">{{miniatura.nome}} ({{miniatura.inizio|date:"y"}})</div>
+        </div>
+        <div class="immagine"><img src="{% static 'miniature_dipinte/' %}{{miniatura.immagine}}"/></div>
+      </td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+
+</table>
+
+{% endblock %}

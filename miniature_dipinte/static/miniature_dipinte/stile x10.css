@@ -1,0 +1,57 @@
+body {
+	font-family: tahoma;
+}
+
+.whfe {background-color: #f88}
+.whft {background-color: #f44}
+.wh40ke {background-color: #fc8}
+.wh40kt {background-color: #fb4}
+.scc {background-color: #ef8}
+.df {background-color: #af8}
+.bb {background-color: #8fb}
+.fsy {background-color: #8ff}
+.stco {background-color: #8cf}
+.ww2 {background-color: #98f}
+.mno {background-color: #d8f}
+.scfy {background-color: #f8d}
+
+img {
+	text-align: center;
+	max-height: 91px;
+	max-width: 129px;
+}
+
+.immagine {
+	text-align: center;
+	height: 91px;
+	max-width: 129px;
+}
+
+td {
+	text-align: center;
+	border: 1px solid #888;
+	vertical-align: top;
+}
+.esercito {
+	font-weight: bold;
+	font-size: smaller;
+	height: 5em;
+}
+.miniatura{
+	font-size: smaller;
+	height: 3em;
+	font-weight: normal;
+}
+
+scelta{
+	 float: right;
+}
+
+.s{
+	max-width: 129px;
+}
+
+.colonna{
+	float: top;
+}
+

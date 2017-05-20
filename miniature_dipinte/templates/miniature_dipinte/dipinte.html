@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Inizio</th>
+    <th>Fine</th>
+    <th>Durata</th>
+    <th>Miniatura</th>
+    <th>Foto</th>
+  </tr>
+  {% for miniatura in miniature %}
+    <tr>
+      <td>{{miniatura.inizio|date:"d/m/Y"}}</td>
+      <td>{{miniatura.fine|date:"d/m/Y"}}</td>
+      <td>{{miniatura.durata}}</td>
+      <td>{{miniatura.nome}}</td>
+      <td></td>
+    </tr>
+  {% endfor %}
+
+</table>

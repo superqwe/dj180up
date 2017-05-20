@@ -1,0 +1,34 @@
+body {
+	font-family: tahoma;
+}
+
+img {
+	text-align: center;
+	max-height: 100px;
+	max-width: 150px;
+}
+td {
+	text-align: center;
+	border: 1px solid #888;
+
+.whf {background-color: #f88}
+.wh40k {background-color: #fc8}
+.tdm {background-color: #ef8}
+.df {background-color: #af8}
+.fanta {background-color: #8fb}
+.stori {background-color: #8ff}
+.wwii {background-color: #8cf}
+.mno {background-color: #98f}
+.scify {background-color: #d8f}
+
+}
+.esercito {
+	font-weight: bold;
+	font-size: smaller;
+	height: 4em;
+}
+.miniatura{
+	font-weight: normal;
+	font-size: smaller;
+	height: 3em;
+}
