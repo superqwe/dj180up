@@ -19,8 +19,8 @@ L2 = ['Eldar',
       'Word Bearers',
       'Deathwatch',
       'Imperial Knights',
-      'Thousand Sons',]
-##L3 = ['Tempesta di Magia', 'Dreadfleet']
+      'Thousand Sons', ]
+# L3 = ['Tempesta di Magia', 'Dreadfleet']
 L4 = ['Tempesta di Magia',          # 0
       'Dreadfleet',                 # 1
       'Avatar of War',              # 2 
@@ -57,9 +57,9 @@ L4 = ['Tempesta di Magia',          # 0
       'Eduard',                     # 32
       ]
 
-NUMERO_TOTALE_DI_MINIATURE = 300 # arrotondare per eccesso
+NUMERO_TOTALE_DI_MINIATURE = 300  # arrotondare per eccesso
 
-OFFSET_TRUPPE = 2 # 1 WHF - 2 WH40K
+OFFSET_TRUPPE = 2  # 1 WHF - 2 WH40K
 OFFSET_WHF_TRUPPE = 2
 OFFSET_WH40K_TRUPPE = 2
 

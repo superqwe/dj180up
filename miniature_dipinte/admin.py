@@ -9,9 +9,10 @@ from miniature_dipinte.models import Classe_Modello, Esercito, Miniatura
 
 import miniature_dipinte.scaletta_miniature as scaletta_miniature
 
+
 # Azioni
 def durata_modelli_finiti(modeladmin, request, queryset):
-    miniature = Miniatura.objects.filter(stato = 'FI')
+    miniature = Miniatura.objects.filter(stato='FI')
 
     for miniatura in miniature:
         miniatura.durata = (miniatura.fine - miniatura.inizio).days 
@@ -25,17 +26,17 @@ def durata_classe_modello(modeladmin, request, queryset):
 
     for classe in classi:
         # miniature finite
-        miniature = Miniatura.objects.filter(classe_modello = classe,
-                                             stato = 'FI').values('durata',
-                                                                  'n_pezzi')
+        miniature = Miniatura.objects.filter(classe_modello=classe,
+                                             stato='FI').values('durata',
+                                                                'n_pezzi')
 
         durata = [float(x['durata'] / x['n_pezzi']) for x in miniature]
         durata = sum(durata) / len(durata) + 1
         miniatura = Classe_Modello.objects.filter(tipo=classe).update(durata=durata)
 
         # miniature da iniziare
-        miniature = Miniatura.objects.filter(classe_modello = classe,
-                                             stato = 'DI')
+        miniature = Miniatura.objects.filter(classe_modello=classe,
+                                             stato='DI')
         for miniatura in miniature:
 
             try:
@@ -49,7 +50,7 @@ durata_classe_modello.short_description = 'Calcola la durata delle classi di mod
 
 
 def durata_modelli_in_corso(modeladmin, request, queryset):
-    miniature = Miniatura.objects.filter(stato = 'IC')
+    miniature = Miniatura.objects.filter(stato='IC')
 
     for miniatura in miniature:
         miniatura.durata = (miniatura.fine - miniatura.inizio).days 
@@ -86,11 +87,11 @@ aggiorna_date_elite.short_description = "Aggiorna le date dell'elite"
 
 def aggiorna_miniature_aggiunte(modeladmin, request, queryset):
     print('OK\nCalcola la durata dei modelli...',
-    durata_classe_modello(None, None, None))
+          durata_classe_modello(None, None, None))
     print('OK\nAggiorna le date delle truppe...',
-    aggiorna_date_truppe(None, None, None))
+          aggiorna_date_truppe(None, None, None))
     print('OK\nAggiorna le date delle elite...',
-    aggiorna_date_elite(None, None, None))
+          aggiorna_date_elite(None, None, None))
     print('OK\n')
 
 aggiorna_miniature_aggiunte.short_description = "Aggiorna dopo l'inserimento di nuove miniature"
@@ -102,7 +103,7 @@ class MiniaturaAdmin(admin.ModelAdmin):
                     'classe_modello', 'inizio', 'fine', 'durata', 'n_pezzi',
                     'immagine')
 
-    list_filter = ['stato', 'tipo', 'classe_modello', 'esercito2',]
+    list_filter = ['stato', 'tipo', 'classe_modello', 'esercito2', ]
 
     search_fields = ['nome']
 

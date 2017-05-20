@@ -1,12 +1,10 @@
 from django.db import models
 
+
 class Classe_Modello(models.Model):
     tipo = models.CharField(max_length=50)
     durata = models.IntegerField(null=True, blank=True)
 
-##    def __unicode__(self):
-##        return '%s' % self.tipo
-    
     def __str__(self):
         return '%s' % self.tipo
 
@@ -15,12 +13,10 @@ class Classe_Modello(models.Model):
         verbose_name = "Classe Modello"
         verbose_name_plural = "Classi Modello"
 
+
 class Esercito(models.Model):
     nome = models.CharField(max_length=50)
 
-##    def __unicode__(self):
-##        return '%s' % self.nome
-    
     def __str__(self):
         return '%s' % self.nome
 
@@ -28,6 +24,7 @@ class Esercito(models.Model):
         ordering = ['nome']
         verbose_name = "Esercito/Marca"
         verbose_name_plural = "Eserciti/Marche" 
+
 
 class Miniatura(models.Model):
     stati = (('DI', 'Da Iniziare'),
@@ -47,11 +44,11 @@ class Miniatura(models.Model):
             ('mno', 'Moderno'),
             ('scfy', 'Scify'),
             )
-    stato = models.CharField(max_length=2, choices=stati, default = 'DI',
+    stato = models.CharField(max_length=2, choices=stati, default='DI',
                              null=True, blank=True)
     tipo = models.CharField(max_length=6, choices=tipi, null=True, blank=True)
     punteggio = models.IntegerField(null=True, blank=True)
-##    esercito = models.CharField(max_length=100, null=True, blank=True)
+#    esercito = models.CharField(max_length=100, null=True, blank=True)
     esercito2 = models.ForeignKey(Esercito, null=True, blank=True,
                                   verbose_name='Esercito')
     nome = models.CharField(max_length=100)
@@ -62,13 +59,9 @@ class Miniatura(models.Model):
     n_pezzi = models.IntegerField(null=True, blank=True)
     immagine = models.ImageField(upload_to='immagini', null=True, blank=True)
     
-##    def __unicode__(self):
-##        return '%s' % self.nome
-
     def __str__(self):
         return '%s' % self.nome
 
     class Meta:
         verbose_name_plural = "Miniature"
         ordering = ['-stato', 'fine', 'inizio', ]
-        

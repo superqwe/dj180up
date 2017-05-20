@@ -21,8 +21,7 @@ urlpatterns = patterns('',
                        url(r'^marche$',
                            views.marche,
                            name='marche'),
-##                       url(r'^importa_csv/$',
-##                           views.importa_csv,
-##                           name='importa_csv'),
+                       # url(r'^importa_csv/$',
+                       #    views.importa_csv,
+                       #    name='importa_csv'),
                        )
-

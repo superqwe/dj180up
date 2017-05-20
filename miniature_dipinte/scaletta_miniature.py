@@ -1,6 +1,6 @@
 import datetime
 import itertools
-import time
+# import time
 
 from pprint import pprint as pp
 
@@ -42,7 +42,6 @@ def elenco_truppe():
 
 
 def elenco_truppe2(lista, tipo, offset=0):
-##    print time.ctime()
     leserciti = []
     for esercito in lista:
         miniature = Miniatura.objects.filter(
@@ -116,16 +115,14 @@ def elenco_elite():
     neserciti = len(leserciti)
 
     esercito = itertools.cycle(range(neserciti))
-##    for x in range(OFFSET_ELITE):
-##        esercito.next()
+
     for i, x in enumerate(esercito):
         if i >= OFFSET_ELITE - 1:
             break
 
     miniature = []
     for n in range(NUMERO_TOTALE_DI_MINIATURE):
-##        for nn in range(neserciti):
-##            e = esercito.next()
+
         for i, e in enumerate(esercito):
             if i >= neserciti - 1:
                 break
@@ -175,7 +172,7 @@ def prossimi_dipinti_generale(tipi):
             except IndexError:
 
                 if not salta:
-                    miniatura = {'esercito2': esercito, 'tipo':tipo}
+                    miniatura = {'esercito2': esercito, 'tipo': tipo}
                     lminia.append(miniatura)
 
             if i == neserciti - 1:
@@ -184,4 +181,3 @@ def prossimi_dipinti_generale(tipi):
         miniature.append(lminia)
         
     return miniature
-

@@ -69,7 +69,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'it-it'
 
-TIME_ZONE = 'Europe/Rome'   #'UTC'
+TIME_ZONE = 'Europe/Rome'   # 'UTC'
 
 USE_I18N = True
 
@@ -82,10 +82,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, '/web/static_manual'),)
-STATICFILES_FINDERS = (
-		    'django.contrib.staticfiles.finders.FileSystemFinder', 
-		    'django.contrib.staticfiles.finders.AppDirectoriesFinder', 
-		    )
+STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder',
+                       'django.contrib.staticfiles.finders.AppDirectoriesFinder', )
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'miniature_dipinte/static')
 
 STATIC_URL = '/static/'

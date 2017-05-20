@@ -2,6 +2,7 @@ from pprint import pprint as pp
 
 FIN = 'Miniature dipinte2.csv'
 
+
 def leggi():
     with open(FIN) as fin:
         dati = fin.readlines()

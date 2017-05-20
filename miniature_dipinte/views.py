@@ -17,8 +17,10 @@ FIN = 'Miniature dipinte2.csv'
 
 # Create your views here.
 
+
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
+
 
 def importa_csv(request):
     with open(FIN) as fin:
@@ -46,15 +48,14 @@ def importa_csv(request):
         inizio = datetime.datetime.strptime(inizio, '%Y/%m/%d')
         fine = datetime.datetime.strptime(fine, '%Y/%m/%d')
 
-        minia = Miniatura(stato = stato,
-                          punteggio = punti,
-                          esercito = esercito,            
-                          nome = miniatura,
-                          inizio = inizio,
-                          fine = fine,
+        minia = Miniatura(stato=stato,
+                          punteggio=punti,
+                          esercito=esercito,
+                          nome=miniatura,
+                          inizio=inizio,
+                          fine=fine,
                           )
         minia.save()
-    
 
     return HttpResponse('scrittura efferruata')
 
@@ -102,14 +103,12 @@ def prossimi_dipinti_truppe(request):
 
 
 def prossimi_dipinti_elite(request):
-    prima_miniatura = Miniatura.objects.filter(
-        Q(stato='DI')
-        ).exclude(Q(tipo='whft') | Q(tipo='wh40kt')
-        ).order_by('inizio')[0]
-    ultima_miniatura = Miniatura.objects.filter(
-        Q(stato='DI')
-        ).exclude(Q(tipo='whft') | Q(tipo='wh40kt')
-        ).order_by('-inizio')[0]
+    prima_miniatura = Miniatura.objects.filter(Q(stato='DI')
+                                               ).exclude(Q(tipo='whft') | Q(tipo='wh40kt')
+                                                         ).order_by('inizio')[0]
+    ultima_miniatura = Miniatura.objects.filter(Q(stato='DI')
+                                                ).exclude(Q(tipo='whft') | Q(tipo='wh40kt')
+                                                          ).order_by('-inizio')[0]
 
     miniature = []
     for anno in range(prima_miniatura.inizio.year,
@@ -128,7 +127,7 @@ def prossimi_dipinti_elite(request):
 
 def dipinte(request):
     miniature = Miniatura.objects.filter(stato='FI').order_by('fine')
-    context = {'miniature': miniature,}
+    context = {'miniature': miniature, }
     return render(request, 'miniature_dipinte/dipinte.html', context)
 
 
@@ -136,7 +135,7 @@ def prossimi_dipinti_generale(request):
     tipi = (('whft', L1, OFFSET_WHF_TRUPPE, False),
             ('wh40kt', L2, OFFSET_WH40K_TRUPPE, False),
             ('whfe', L1, OFFSET_WHF_ELITE, False),
-            ('wh40ke', L2,OFFSET_WH40K_ELITE, False),
+            ('wh40ke', L2, OFFSET_WH40K_ELITE, False),
             ('scc', L4, OFFSET_Scenici, True),
             ('df', L4, OFFSET_Dread_Fleet, True),
             ('bb', L4, OFFSET_Blood_Bowl, True),
@@ -156,6 +155,7 @@ def prossimi_dipinti_generale(request):
                'titolo': '01 generale'}
     return render(request, 'miniature_dipinte/prossimi_dipinti_generale.html',
                   context)
+
 
 def marche(request):
     whf = []
