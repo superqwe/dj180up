@@ -1,10 +1,25 @@
-L1 = ['Alti Elfi', 'Skaven', 'Elfi Silvani',
-      'Uomini Lucertola', 'Guerrieri del Caos', 'Khorne Bloodbound',
-      'Stormcast Eternal', 'Nani', 'Silver Tower']
-L2 = ['Eldar', 'Angeli Oscuri', 'Space Marine del Caos',
-      'Space Wolves', 'Orki', 'Angeli Sanguinari',
-      'Tiranidi', 'Officio Assassinorum', 'Ultramarines', 'Word Bearers',
-      'Deathwatch', 'Imperial Knights', 'Thousand Sons',]
+L1 = ['Alti Elfi',
+      'Skaven',
+      'Elfi Silvani',
+      'Uomini Lucertola',
+      'Guerrieri del Caos',
+      'Khorne Bloodbound',
+      'Stormcast Eternal',
+      'Nani',
+      'Silver Tower']
+L2 = ['Eldar',
+      'Angeli Oscuri',
+      'Space Marine del Caos',
+      'Space Wolves',
+      'Orki',
+      'Angeli Sanguinari',
+      'Tiranidi',
+      'Officio Assassinorum',
+      'Ultramarines',
+      'Word Bearers',
+      'Deathwatch',
+      'Imperial Knights',
+      'Thousand Sons',]
 ##L3 = ['Tempesta di Magia', 'Dreadfleet']
 L4 = ['Tempesta di Magia',          # 0
       'Dreadfleet',                 # 1

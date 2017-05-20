@@ -14,7 +14,6 @@ def elenco_truppe():
     whf = elenco_truppe2(L1, 'whft', OFFSET_WHF_TRUPPE)
     wh40k = elenco_truppe2(L2, 'wh40kt', OFFSET_WH40K_TRUPPE)
     lwh = [whf, wh40k]
-    # pp(lwh)
 
     wh = itertools.cycle(range(2))
 
@@ -29,7 +28,7 @@ def elenco_truppe():
         for i, e in enumerate(wh):
 
             try:
-                print(i, e, n)
+                # print(i, e, n)
                 minia = lwh[e][n]
                 miniature.append(minia)
             except IndexError:
@@ -49,15 +48,13 @@ def elenco_truppe2(lista, tipo, offset=0):
         miniature = Miniatura.objects.filter(
             tipo=tipo, stato='DI', esercito2__nome=esercito).order_by(
                 'punteggio', 'nome')
-            
+
         leserciti.append(miniature)
 
     miniature = []
     neserciti = len(lista)
     esercito = itertools.cycle(range(neserciti))
 
-##    for x in range(offset):
-##        esercito.next()
     for i, x in enumerate(esercito):
         if i >= offset - 1:
                 break
@@ -65,22 +62,21 @@ def elenco_truppe2(lista, tipo, offset=0):
     termina_ciclo = neserciti
     for n in range(NUMERO_TOTALE_DI_MINIATURE):    
         
-##        for nn in range(neserciti):
         for i, e in enumerate(esercito):
-            if i >= neserciti - 1:
-                    break
-
+            # print(i, e, n, termina_ciclo)
             if termina_ciclo == 0:
                 break
 
-##            e = esercito.next()
-
             try:
                 minia = leserciti[e][n]
+                # print(minia)
                 miniature.append(minia)
                 termina_ciclo = neserciti
             except IndexError:
                 termina_ciclo -= 1
+
+            if i == neserciti - 1:
+                    break
 
     return miniature
 
@@ -170,8 +166,6 @@ def prossimi_dipinti_generale(tipi):
             
         lminia = []
         for i, esercito in enumerate(iesercito):
-            if i >= neserciti - 1:
-                break
 
             try:
                 miniatura = Miniatura.objects.filter(
@@ -182,7 +176,10 @@ def prossimi_dipinti_generale(tipi):
 
                 if not salta:
                     miniatura = {'esercito2': esercito, 'tipo':tipo}
-                    lminia.append(miniatura)            
+                    lminia.append(miniatura)
+
+            if i == neserciti - 1:
+                break
 
         miniature.append(lminia)
         
