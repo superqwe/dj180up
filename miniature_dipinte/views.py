@@ -137,7 +137,7 @@ def prossimi_dipinti_generale(request):
             ('whfe', L1, OFFSET_WHF_ELITE, False),
             ('wh40ke', L2, OFFSET_WH40K_ELITE, False),
             ('scc', L4, OFFSET_Scenici, True),
-            ('df', L4, OFFSET_Dread_Fleet, True),
+            ('bg', L4, OFFSET_Board_Game, True),
             ('bb', L4, OFFSET_Blood_Bowl, True),
             ('fsy', L4, OFFSET_Fantasy, True),
             ('stco', L4, OFFSET_Storico, True),

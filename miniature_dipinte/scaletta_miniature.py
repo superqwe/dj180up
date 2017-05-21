@@ -98,10 +98,10 @@ def aggiorna_date_truppe(elenco_truppe):
 def elenco_elite():
     eserciti = ('scc', 'df', 'bb',
                 'fsy', 'stco', 'ww2',
-                'mno', 'scfy')
+                'mno', 'scfy', 'bg')
     offset = (OFFSET_Scenici, OFFSET_Dread_Fleet, OFFSET_Blood_Bowl,
               OFFSET_Fantasy, OFFSET_Storico, OFFSET_WWII,
-              OFFSET_Moderno, OFFSET_Scify)
+              OFFSET_Moderno, OFFSET_Scify, OFFSET_Board_Game)
     
     whf = elenco_truppe2(L1, 'whfe', OFFSET_WHF_ELITE)
     wh40k = elenco_truppe2(L2, 'wh40ke', OFFSET_WH40K_ELITE)
@@ -109,6 +109,7 @@ def elenco_elite():
     leserciti = [whf, wh40k]
 
     for esercito, offset in zip(eserciti, offset):
+        # print(esercito)
         elenco = elenco_truppe2(L4, esercito, offset)
         leserciti.append(elenco)
   
@@ -124,14 +125,15 @@ def elenco_elite():
     for n in range(NUMERO_TOTALE_DI_MINIATURE):
 
         for i, e in enumerate(esercito):
-            if i >= neserciti - 1:
-                break
-        
+
             try:
                 minia = leserciti[e][n]
                 miniature.append(minia)
             except IndexError:
                 pass
+
+            if i >= neserciti - 1:
+                break
 
     return miniature
 

@@ -6,7 +6,8 @@ L1 = ['Alti Elfi',
       'Khorne Bloodbound',
       'Stormcast Eternal',
       'Nani',
-      'Silver Tower']
+      # 'Silver Tower',
+      ]
 L2 = ['Eldar',
       'Angeli Oscuri',
       'Space Marine del Caos',
@@ -14,15 +15,15 @@ L2 = ['Eldar',
       'Orki',
       'Angeli Sanguinari',
       'Tiranidi',
-      'Officio Assassinorum',
-      'Ultramarines',
-      'Word Bearers',
+      # 'Officio Assassinorum',
+      # 'Ultramarines',
+      # 'Word Bearers',
       'Deathwatch',
       'Imperial Knights',
       'Thousand Sons', ]
 # L3 = ['Tempesta di Magia', 'Dreadfleet']
-L4 = ['Tempesta di Magia',          # 0
-      'Dreadfleet',                 # 1
+L4 = ['Elementi Scenici',           # 0
+      'Board Game',                 # 1
       'Avatar of War',              # 2 
       'Confrontation',              # 3
       'Andrea Miniatures',          # 4
@@ -51,8 +52,7 @@ L4 = ['Tempesta di Magia',          # 0
       'Dungeon Saga',               # 27
       'Mitches Military Models',    # 28
       'Blood Bowl',                 # 29
-      'Warhammer Quest',            # 30
-      'MiniArt',                    # 31
+      'MiniArt',                    # 30
       'AFV Club',                   # 31
       'Eduard',                     # 32
       ]
@@ -74,3 +74,24 @@ OFFSET_Storico = 6
 OFFSET_WWII = 15
 OFFSET_Moderno = 4
 OFFSET_Scify = 9
+OFFSET_Board_Game = 0
+
+STATI = (('DI', 'Da Iniziare'),
+         ('IC', 'In Corso'),
+         ('FI', 'Finito')
+         )
+
+TIPI = (('whft', 'WHF Truppa'),
+        ('whfe', 'WHF Elite'),
+        ('wh40kt', 'WH40k Truppa'),
+        ('wh40ke', 'WH40k Elite'),
+        ('scc', 'Scenici'),
+        ('df', 'Dread Fleet'),
+        ('bb', 'Blood Bowl'),
+        ('fsy', 'Fantasy'),
+        ('stco', 'Storico'),
+        ('ww2', 'WWII'),
+        ('mno', 'Moderno'),
+        ('scfy', 'Scify'),
+        ('bg', 'Board Game')
+        )

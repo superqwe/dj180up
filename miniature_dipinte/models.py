@@ -1,5 +1,6 @@
 from django.db import models
 
+from miniature_dipinte.costanti import *
 
 class Classe_Modello(models.Model):
     tipo = models.CharField(max_length=50)
@@ -27,26 +28,9 @@ class Esercito(models.Model):
 
 
 class Miniatura(models.Model):
-    stati = (('DI', 'Da Iniziare'),
-             ('IC', 'In Corso'),
-             ('FI', 'Finito')
-             )
-    tipi = (('whft', 'WHF Truppa'),
-            ('whfe', 'WHF Elite'),
-            ('wh40kt', 'WH40k Truppa'),
-            ('wh40ke', 'WH40k Elite'),
-            ('scc', 'Scenici'),
-            ('df', 'Dread Fleet'),
-            ('bb', 'Blood Bowl'),
-            ('fsy', 'Fantasy'),
-            ('stco', 'Storico'),
-            ('ww2', 'WWII'),
-            ('mno', 'Moderno'),
-            ('scfy', 'Scify'),
-            )
-    stato = models.CharField(max_length=2, choices=stati, default='DI',
+    stato = models.CharField(max_length=2, choices=STATI, default='DI',
                              null=True, blank=True)
-    tipo = models.CharField(max_length=6, choices=tipi, null=True, blank=True)
+    tipo = models.CharField(max_length=6, choices=TIPI, null=True, blank=True)
     punteggio = models.IntegerField(null=True, blank=True)
 #    esercito = models.CharField(max_length=100, null=True, blank=True)
     esercito2 = models.ForeignKey(Esercito, null=True, blank=True,
