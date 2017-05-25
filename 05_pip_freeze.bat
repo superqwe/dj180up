@@ -1,0 +1,1 @@
+pip freeze > requirements_1913.txt
