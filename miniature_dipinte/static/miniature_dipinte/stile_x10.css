@@ -45,7 +45,7 @@ td {
 }
 
 scelta{
-	 float: right;
+	 float: left;
 }
 
 .s{
@@ -56,3 +56,21 @@ scelta{
 	float: top;
 }
 
+#menu a{
+    font-size: 10px;
+    border-radius: 8px;
+    background-color: #aaa;
+    border: 2px solid #aaa;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+ }
+
+#menu a:hover {
+    color:#aaa;
+    background-color: #fff; /* Green */
+ }
