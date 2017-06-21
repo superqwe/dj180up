@@ -9,6 +9,7 @@ from miniature_dipinte.models import Classe_Modello, Esercito, Miniatura
 
 import miniature_dipinte.scaletta_miniature as scaletta_miniature
 
+#todo modificare messaggio su inserimento o modifica miniatura
 
 # Azioni
 def durata_modelli_finiti(modeladmin, request, queryset):

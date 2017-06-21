@@ -20,7 +20,8 @@ L2 = ['Eldar',
       # 'Word Bearers',
       'Deathwatch',
       'Imperial Knights',
-      'Thousand Sons', ]
+      'Thousand Sons',
+      'Space Marines']
 # L3 = ['Tempesta di Magia', 'Dreadfleet']
 L4 = ['Elementi Scenici',           # 0
       'Board Game',                 # 1
