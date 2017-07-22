@@ -6,6 +6,7 @@ L1 = ['Alti Elfi',
       'Khorne Bloodbound',
       'Stormcast Eternal',
       'Nani',
+      'Kharadron Overlords',
       # 'Silver Tower',
       ]
 L2 = ['Eldar',
