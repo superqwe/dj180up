@@ -65,7 +65,7 @@ scelta{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    width: 100px;
+    width: 129px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
  }
@@ -73,4 +73,19 @@ scelta{
 #menu a:hover {
     color:#aaa;
     background-color: #fff; /* Green */
+ }
+
+#content{
+    clear: left;
+    position: relative;
+    top: 25px;
+ }
+
+ #menu {
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 25px;
+    z-index: 100;
  }
