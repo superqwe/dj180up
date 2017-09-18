@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'miniature_dipinte/stile_x10.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'miniature_dipinte/stile x10 print.css' %}" media="print"/>
+   <title>{% block title %}My amazing site{% endblock %}</title>
+</head>
+
+<body>
+
+
+<div id="menu">
+    <scelta>
+        <a href="/admin">Admin</a>
+        <a href="./prossimi_dipinti_generale">Generale</a>
+        <a href="./marche">Marche</a>
+        <a href="./prossimi_dipinti">Anno</a>
+        <a href="./prossimi_dipinti_truppe">Truppe</a>
+        <a href="./prossimi_dipinti_elite">Elite</a>
+        <a href="./dipinte">Dipinte</a>
+    </scelta>
+</div>
+
+    <div id="content">
+        {% block content %}prova{% endblock %}
+    </div>
+
+
+</body>
+</html>

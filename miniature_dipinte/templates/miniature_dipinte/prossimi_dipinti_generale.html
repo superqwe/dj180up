@@ -5,24 +5,75 @@
 {% block title %}{{titolo}}{% endblock %}
 
 {% block content %}
-<table>
-  <tr>
-  {% for lminiature in miniature %}
-  <td>
-    {% for miniatura in lminiature %}
-      <div class="s">
-        <div class="esercito {{miniatura.tipo}}">{{miniatura.esercito2.nome}}
-             <div class="miniatura">{{miniatura.nome}} ({{miniatura.inizio|date:"m/y"}}-{{miniatura.fine|date:"m/y"}})</div>
+
+<div class="row">
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-2</div>
+    <div class="col-md-1">.col-md-3</div>
+    <div class="col-md-1">.col-md-4</div>
+    <div class="col-md-1">.col-md-5</div>
+    <div class="col-md-1">.col-md-6</div>
+    <div class="col-md-1">.col-md-7</div>
+    <div class="col-md-1">.col-md-8</div>
+    <div class="col-md-1">.col-md-9</div>
+    <div class="col-md-1">.col-md-10</div>
+    <div class="col-md-1">.col-md-11</div>
+    <div class="col-md-1">.col-md-12</div>
+</div>
+
+<div class="row">
+    {% for lminiature in miniature %}
+
+    <div class="col-lg-1">
+        {% for miniatura in lminiature %}
+        <div class="esercito {{miniatura.tipo}}">
+            <div class="testa">
+                <div class="esercito2">
+                    {{miniatura.esercito2}}
+                </div>
+                <div class="miniatura">
+                    {{miniatura.nome}}
+                </div>
+            </div>
+            <div class="immagine">
+                <!--{% if miniatura.immagine %}
+                <img src="{% static 'miniature_dipinte/' %}{{miniatura.immagine}}"/>
+                {% endif %}-->
+            </div>
         </div>
-        <div class="immagine">
-          {% if miniatura.immagine %}<img src="{% static 'miniature_dipinte/' %}{{miniatura.immagine}}"/>{% endif %}
-        </div>
-      <div>
+        <hr>
+        {% endfor %}
+    </div>
+
+
     {% endfor %}
-  </td>
-  {% endfor %}
-  </tr>
+</div>
+
+
+<table>
+    <tr>
+        {% for lminiature in miniature %}
+        <td>
+            {% for miniatura in lminiature %}
+            <div class="s">
+                <div class="esercito {{miniatura.tipo}}">
+                    {{miniatura.esercito2}}
+                    <div class="miniatura">
+                        {{miniatura.nome}} ({{miniatura.inizio|date:"m/y"}}-{{miniatura.fine|date:"m/y"}})
+                    </div>
+                </div>
+                <div class="immagine">
+                    {% if miniatura.immagine %}
+                    <img src="{% static 'miniature_dipinte/' %}{{miniatura.immagine}}"/>
+                    {% endif %}
+                </div>
+                <div>
+                    {% endfor %}
+        </td>
+        {% endfor %}
+    </tr>
 </table>
+
 
 
 

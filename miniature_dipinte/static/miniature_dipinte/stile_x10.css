@@ -19,13 +19,13 @@ body {
 img {
 	text-align: center;
 	max-height: 91px;
-	max-width: 129px;
+	max-width: 100px;
 }
 
 .immagine {
 	text-align: center;
 	height: 91px;
-	max-width: 129px;
+	max-width: 100px;
 }
 
 td {
@@ -36,6 +36,11 @@ td {
 .esercito {
 	font-weight: bold;
 	font-size: smaller;
+	height: 6em;
+}
+.esercito2 {
+	font-weight: normal;
+	font-size: smaller;
 	height: 5em;
 }
 .miniatura{
@@ -43,49 +48,15 @@ td {
 	height: 3em;
 	font-weight: normal;
 }
-
-scelta{
-	 float: left;
+.nome_miniatura{
+	font-size: smaller;
+	height: 3em;
+	font-weight: normal;
 }
-
 .s{
-	max-width: 129px;
+	max-width: 90px;
 }
 
 .colonna{
 	float: top;
 }
-
-#menu a{
-    font-size: 10px;
-    border-radius: 8px;
-    background-color: #aaa;
-    border: 2px solid #aaa;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 129px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
- }
-
-#menu a:hover {
-    color:#aaa;
-    background-color: #fff; /* Green */
- }
-
-#content{
-    clear: left;
-    position: relative;
-    top: 25px;
- }
-
- #menu {
-    background-color: white;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 25px;
-    z-index: 100;
- }

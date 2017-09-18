@@ -1,33 +1,43 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'miniature_dipinte/stile_x10.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'miniature_dipinte/stile x10 print.css' %}" media="print"/>
-   <title>{% block title %}My amazing site{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'miniature_dipinte/stile_x10.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'miniature_dipinte/stile x10 print.css' %}" media="print"/>
+    <title>{% block title %}My amazing site{% endblock %}</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 
 <body>
 
+<div class="container-fluid">
 
-<div id="menu">
-    <scelta>
-        <a href="/admin">Admin</a>
-        <a href="./prossimi_dipinti_generale">Generale</a>
-        <a href="./marche">Marche</a>
-        <a href="./prossimi_dipinti">Anno</a>
-        <a href="./prossimi_dipinti_truppe">Truppe</a>
-        <a href="./prossimi_dipinti_elite">Elite</a>
-        <a href="./dipinte">Dipinte</a>
-    </scelta>
-</div>
+    <div id="menu">
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="/admin">Admin</a></li>
+            <li role="presentation"><a href="./prossimi_dipinti_generale">Generale</a></li>
+            <li role="presentation"><a href="./marche">Marche</a></li>
+            <li role="presentation"><a href="./prossimi_dipinti">Anno</a></li>
+            <li role="presentation"><a href="./prossimi_dipinti_truppe">Truppe</a></li>
+            <li role="presentation"> <a href="./prossimi_dipinti_elite">Elite</a></li>
+            <li role="presentation"><a href="./dipinte">Dipinte</a></li>
+        </ul>
+    </div>
 
     <div id="content">
         {% block content %}prova{% endblock %}
     </div>
 
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
