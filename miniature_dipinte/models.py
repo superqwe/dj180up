@@ -48,4 +48,4 @@ class Miniatura(models.Model):
 
     class Meta:
         verbose_name_plural = "Miniature"
-        ordering = ['-stato', 'fine', 'inizio', ]
+        ordering = ['-stato',  'inizio', 'fine',]
