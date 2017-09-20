@@ -10,6 +10,7 @@ from miniature_dipinte.models import Classe_Modello, Esercito, Miniatura
 
 from miniature_dipinte.costanti import *
 
+# todo date delle miniature errate
 def elenco_truppe():
     whf = elenco_truppe2(L1, 'whft', OFFSET_WHF_TRUPPE)
     wh40k = elenco_truppe2(L2, 'wh40kt', OFFSET_WH40K_TRUPPE)
@@ -134,7 +135,7 @@ def elenco_elite():
 
             if i >= neserciti - 1:
                 break
-
+    # pp(miniature)
     return miniature
 
 
