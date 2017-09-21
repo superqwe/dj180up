@@ -10,8 +10,6 @@ from miniature_dipinte.models import Classe_Modello, Esercito, Miniatura
 
 from miniature_dipinte.costanti import *
 
-#todo: ordine date truppe errate - inizia sempre con WH40K
-#todo: data inizio prossimo elite preso da fine data truppa in corso
 
 def elenco_truppe():
     whf = elenco_truppe2(L1, 'whft', OFFSET_WHF_TRUPPE)
@@ -40,7 +38,6 @@ def elenco_truppe():
             if i == 1:
                 break
 
-    # pp(miniature)
     return miniature
 
 
@@ -49,7 +46,7 @@ def elenco_truppe2(lista, tipo, offset=0):
     for esercito in lista:
         miniature = Miniatura.objects.filter(
             tipo=tipo, stato='DI', esercito2__nome=esercito).order_by(
-                'punteggio', 'nome')
+            'punteggio', 'nome')
 
         leserciti.append(miniature)
 
@@ -59,11 +56,11 @@ def elenco_truppe2(lista, tipo, offset=0):
 
     for i, x in enumerate(esercito):
         if i >= offset - 1:
-                break
-                
+            break
+
     termina_ciclo = neserciti
-    for n in range(NUMERO_TOTALE_DI_MINIATURE):    
-        
+    for n in range(NUMERO_TOTALE_DI_MINIATURE):
+
         for i, e in enumerate(esercito):
             # print(i, e, n, termina_ciclo)
             if termina_ciclo == 0:
@@ -78,7 +75,7 @@ def elenco_truppe2(lista, tipo, offset=0):
                 termina_ciclo -= 1
 
             if i == neserciti - 1:
-                    break
+                break
 
     return miniature
 
@@ -97,15 +94,15 @@ def aggiorna_date_truppe(truppe):
         minia.fine = data
         minia.save()
 
-    
+
 def elenco_elite():
-    eserciti = ('scc', 'df', 'bb',
+    eserciti = ('scc', 'bg', 'bb',
                 'fsy', 'stco', 'ww2',
-                'mno', 'scfy', 'bg')
-    offset = (OFFSET_Scenici, OFFSET_Dread_Fleet, OFFSET_Blood_Bowl,
+                'mno', 'scfy', 'df')
+    offset = (OFFSET_Scenici, OFFSET_Board_Game, OFFSET_Blood_Bowl,
               OFFSET_Fantasy, OFFSET_Storico, OFFSET_WWII,
-              OFFSET_Moderno, OFFSET_Scify, OFFSET_Board_Game)
-    
+              OFFSET_Moderno, OFFSET_Scify, OFFSET_Dread_Fleet)
+
     whf = elenco_truppe2(L1, 'whfe', OFFSET_WHF_ELITE)
     wh40k = elenco_truppe2(L2, 'wh40ke', OFFSET_WH40K_ELITE)
 
@@ -115,7 +112,7 @@ def elenco_elite():
         # print(esercito)
         elenco = elenco_truppe2(L4, esercito, offset)
         leserciti.append(elenco)
-  
+
     neserciti = len(leserciti)
 
     esercito = itertools.cycle(range(neserciti))
@@ -144,17 +141,17 @@ def elenco_elite():
 def aggiorna_date_elite(elenco_elite):
     elite_in_corso = Miniatura.objects.filter(
         Q(stato='IC')).exclude(
-            Q(tipo='whft') | Q(tipo='wh4okt')).order_by('-fine')[0]
+        Q(tipo='whft') | Q(tipo='wh40kt')).order_by('-fine')[0]
 
     data = elite_in_corso.fine
-   
+
     for minia in elenco_elite:
         minia.inizio = data
         data += datetime.timedelta(minia.durata)
         minia.fine = data
         minia.save()
 
-        
+
 def prossimi_dipinti_generale(tipi):
     miniature = []
     for tipo, lista_esercito, offset, salta in tipi:
@@ -165,14 +162,14 @@ def prossimi_dipinti_generale(tipi):
         for i, x in enumerate(iesercito):
             if i >= offset - 1:
                 break
-            
+
         lminia = []
         for i, esercito in enumerate(iesercito):
 
             try:
                 miniatura = Miniatura.objects.filter(
                     stato='DI', tipo=tipo, esercito2__nome=esercito
-                    ).order_by('inizio')[0]
+                ).order_by('inizio')[0]
                 lminia.append(miniatura)
             except IndexError:
 
@@ -184,5 +181,5 @@ def prossimi_dipinti_generale(tipi):
                 break
 
         miniature.append(lminia)
-        
+
     return miniature
