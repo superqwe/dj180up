@@ -74,7 +74,7 @@ def prossimi_dipinti(request):
         miniature.append((anno, mminiature_per_anno))
 
     context = {'miniature': miniature,
-               'titolo': '02 anno'}
+               'titolo': '03 anno'}
     return render(request, 'miniature_dipinte/prossimi_dipinti.html', context)
 
 
@@ -99,7 +99,7 @@ def prossimi_dipinti_truppe(request):
         miniature.append((anno, mminiature_per_anno))
 
     context = {'miniature': miniature,
-               'titolo': '03 truppe'}
+               'titolo': '04 truppe'}
     return render(request, 'miniature_dipinte/prossimi_dipinti.html', context)
 
 
@@ -122,13 +122,14 @@ def prossimi_dipinti_elite(request):
         miniature.append((anno, mminiature_per_anno))
 
     context = {'miniature': miniature,
-               'titolo': '04 elite'}
+               'titolo': '05 elite'}
     return render(request, 'miniature_dipinte/prossimi_dipinti.html', context)
 
 
 def dipinte(request):
     miniature = Miniatura.objects.filter(stato='FI').order_by('fine')
-    context = {'miniature': miniature, }
+    context = {'miniature': miniature,
+               'titolo': '06 Dipinte'}
     return render(request, 'miniature_dipinte/dipinte.html', context)
 
 
@@ -183,5 +184,5 @@ def marche(request):
     context = {'whf': whf,
                'wh40k': wh40k,
                'eserciti': eserciti,
-               'titolo': 'marche'}
+               'titolo': '02 marche'}
     return render(request, 'miniature_dipinte/marche.html', context)
