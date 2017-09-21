@@ -15,6 +15,7 @@ from miniature_dipinte.costanti import *
 
 FIN = 'Miniature dipinte2.csv'
 
+
 # Create your views here.
 
 
@@ -27,8 +28,8 @@ def importa_csv(request):
         dati = fin.readlines()
 
         ldati = [x.split(';')[:7] for x in dati if x.split(';')[3]]
-        
-        del(ldati[0])
+
+        del (ldati[0])
 
     for completato, punti, esercito, miniatura, inizio, fine, durata in ldati:
 
@@ -66,7 +67,7 @@ def prossimi_dipinti(request):
 
     miniature = []
     for anno in range(prima_miniatura.inizio.year,
-                      ultima_miniatura.fine.year+1):
+                      ultima_miniatura.fine.year + 1):
         mminiature_per_anno = Miniatura.objects.filter(
             stato='DI', inizio__year=anno).order_by('inizio')
 
@@ -81,15 +82,15 @@ def prossimi_dipinti_truppe(request):
     prima_miniatura = Miniatura.objects.filter(
         Q(stato='DI'),
         Q(tipo='whft') | Q(tipo='wh40kt')
-        ).order_by('inizio')[0]
+    ).order_by('inizio')[0]
     ultima_miniatura = Miniatura.objects.filter(
         Q(stato='DI'),
         Q(tipo='whft') | Q(tipo='wh40kt')
-        ).order_by('-inizio')[0]
+    ).order_by('-inizio')[0]
 
     miniature = []
     for anno in range(prima_miniatura.inizio.year,
-                      ultima_miniatura.fine.year+1):
+                      ultima_miniatura.fine.year + 1):
         mminiature_per_anno = Miniatura.objects.filter(
             Q(stato='DI'),
             Q(tipo='whft') | Q(tipo='wh40kt'),
@@ -112,11 +113,11 @@ def prossimi_dipinti_elite(request):
 
     miniature = []
     for anno in range(prima_miniatura.inizio.year,
-                      ultima_miniatura.fine.year+1):
+                      ultima_miniatura.fine.year + 1):
         mminiature_per_anno = Miniatura.objects.filter(
             Q(stato='DI'), Q(inizio__year=anno)
-            ).exclude(Q(tipo='whft') | Q(tipo='wh40kt')
-                      ).order_by('inizio')
+        ).exclude(Q(tipo='whft') | Q(tipo='wh40kt')
+                  ).order_by('inizio')
 
         miniature.append((anno, mminiature_per_anno))
 
@@ -146,10 +147,10 @@ def prossimi_dipinti_generale(request):
             ('scfy', L4, OFFSET_Scify, True))
     lminia = scaletta_miniature.prossimi_dipinti_generale(tipi)
 
-    miniature = [lminia[1], lminia[0]] if OFFSET_TRUPPE else [lminia[0],
-                                                              lminia[1]]
-    miniature.extend(lminia[2+OFFSET_ELITE:])
-    miniature.extend(lminia[2:2+OFFSET_ELITE])
+    miniature = [lminia[1], lminia[0]] if OFFSET_TRUPPE == 2 else [lminia[0],
+                                                                   lminia[1]]
+    miniature.extend(lminia[2 + OFFSET_ELITE:])
+    miniature.extend(lminia[2:2 + OFFSET_ELITE])
 
     context = {'miniature': miniature,
                'titolo': '01 generale'}
@@ -164,7 +165,7 @@ def marche(request):
             Q(stato='DI', esercito2__nome=esercito)).order_by('inizio')
 
         whf.append((esercito, miniature.all()))
-        
+
     wh40k = []
     for esercito in L2:
         miniature = Miniatura.objects.filter(

@@ -83,14 +83,14 @@ def elenco_truppe2(lista, tipo, offset=0):
     return miniature
 
 
-def aggiorna_date_truppe(elenco_truppe):
+def aggiorna_date_truppe(truppe):
     truppa_in_corso = Miniatura.objects.filter(
         Q(stato='IC'),
         Q(tipo='whft') | Q(tipo='wh40kt')).order_by('-fine')[0]
 
     data = truppa_in_corso.fine
 
-    for minia in elenco_truppe:
+    for minia in truppe:
         # print(minia.nome)
         minia.inizio = data
         data += datetime.timedelta(minia.durata)

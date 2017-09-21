@@ -61,7 +61,7 @@ L4 = ['Elementi Scenici',           # 0
 
 NUMERO_TOTALE_DI_MINIATURE = 300  # arrotondare per eccesso
 
-OFFSET_TRUPPE = 0  # 1 WHF - 2 WH40K
+OFFSET_TRUPPE = 1  # 1 WHF - 2 WH40K
 OFFSET_WHF_TRUPPE = 2
 OFFSET_WH40K_TRUPPE = 3
 
