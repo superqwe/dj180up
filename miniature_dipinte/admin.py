@@ -9,15 +9,17 @@ from miniature_dipinte.models import Classe_Modello, Esercito, Miniatura
 
 import miniature_dipinte.scaletta_miniature as scaletta_miniature
 
-#todo modificare messaggio su inserimento o modifica miniatura
+
+# todo modificare messaggio su inserimento o modifica miniatura
 
 # Azioni
 def durata_modelli_finiti(modeladmin, request, queryset):
     miniature = Miniatura.objects.filter(stato='FI')
 
     for miniatura in miniature:
-        miniatura.durata = (miniatura.fine - miniatura.inizio).days 
+        miniatura.durata = (miniatura.fine - miniatura.inizio).days
         miniatura.save()
+
 
 durata_modelli_finiti.short_description = 'Calcola la durata delle miniature terminate'
 
@@ -47,6 +49,7 @@ def durata_classe_modello(modeladmin, request, queryset):
                 print('****ERRORE*** non aggiorna la durata delle miniatura',
                       miniatura.nome)
 
+
 durata_classe_modello.short_description = 'Calcola la durata delle classi di modelli'
 
 
@@ -54,9 +57,10 @@ def durata_modelli_in_corso(modeladmin, request, queryset):
     miniature = Miniatura.objects.filter(stato='IC')
 
     for miniatura in miniature:
-        miniatura.durata = (miniatura.fine - miniatura.inizio).days 
+        miniatura.durata = (miniatura.fine - miniatura.inizio).days
         miniatura.save()
-    
+
+
 durata_modelli_in_corso.short_description = 'Calcola la durata delle miniature in corso'
 
 
@@ -69,12 +73,28 @@ def allunga_durata_modello_in_corso(modeladmin, request, queryset):
 
     durata_modelli_in_corso(None, None, None)
 
+
 allunga_durata_modello_in_corso.short_description = 'Aumenta di 30 giorni la durata della miniatura'
+
+
+def inizia_oggi(modeladmin, request, queryset):
+    for miniatura in queryset:
+        miniatura.stato = 'IC'
+        oggi = datetime.date.today()
+        miniatura.inizio = datetime.date.today()
+        miniatura.fine = oggi + datetime.timedelta(miniatura.durata)
+        miniatura.save()
+
+        durata_modelli_in_corso(None, None, None)
+
+
+inizia_oggi.short_description = 'Inizia oggi la miniatura'
 
 
 def aggiorna_date_truppe(modeladmin, request, queryset):
     elenco_truppe = scaletta_miniature.elenco_truppe()
     scaletta_miniature.aggiorna_date_truppe(elenco_truppe)
+
 
 aggiorna_date_truppe.short_description = 'Aggiorna le date delle truppe'
 
@@ -82,6 +102,7 @@ aggiorna_date_truppe.short_description = 'Aggiorna le date delle truppe'
 def aggiorna_date_elite(modeladmin, request, queryset):
     elenco_elite = scaletta_miniature.elenco_elite()
     scaletta_miniature.aggiorna_date_elite(elenco_elite)
+
 
 aggiorna_date_elite.short_description = "Aggiorna le date dell'elite"
 
@@ -95,8 +116,9 @@ def aggiorna_miniature_aggiunte(modeladmin, request, queryset):
           aggiorna_date_elite(None, None, None))
     print('OK\n')
 
+
 aggiorna_miniature_aggiunte.short_description = "Aggiorna dopo l'inserimento di nuove miniature"
-    
+
 
 # Register your models here.
 class MiniaturaAdmin(admin.ModelAdmin):
@@ -111,6 +133,7 @@ class MiniaturaAdmin(admin.ModelAdmin):
     actions = [durata_modelli_finiti,
                durata_classe_modello,
                durata_modelli_in_corso,
+               inizia_oggi,
                allunga_durata_modello_in_corso,
                aggiorna_date_truppe,
                aggiorna_date_elite,
@@ -121,7 +144,8 @@ class MiniaturaAdmin(admin.ModelAdmin):
 class Classe_Modello_Admin(admin.ModelAdmin):
     list_display = ('tipo', 'durata')
     actions = [durata_classe_modello]
-    
+
+
 admin.site.register(Classe_Modello, Classe_Modello_Admin)
 admin.site.register(Esercito)
 admin.site.register(Miniatura, MiniaturaAdmin)
