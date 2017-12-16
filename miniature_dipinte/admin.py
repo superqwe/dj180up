@@ -1,13 +1,15 @@
 import datetime
-import time
+
+from django.conf.locale.it import formats as it_formats
+from django.contrib import admin
 
 from pprint import pprint as pp
 
-from django.contrib import admin
-
+import miniature_dipinte.scaletta_miniature as scaletta_miniature
 from miniature_dipinte.models import Classe_Modello, Esercito, Miniatura
 
-import miniature_dipinte.scaletta_miniature as scaletta_miniature
+# formato visualizzazione data
+it_formats.DATE_FORMAT = "d M y"
 
 
 # todo modificare messaggio su inserimento o modifica miniatura
