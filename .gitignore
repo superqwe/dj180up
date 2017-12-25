@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# mypy
+17*/
+old/
+.mypy_cache/
+/.idea/
+scatole.txt
+New File.txt
+*Copia*.sqlite
+/miniature_dipinte/static/miniature_dipinte/immagini/
+/miniature_dipinte/static/css/
+/miniature_dipinte/static/fonts/
+/miniature_dipinte/static/js/
+/lara.txt
+/1709/
