@@ -7,12 +7,10 @@ __pycache__/
 old/
 .mypy_cache/
 /.idea/
-scatole.txt
 *Copia*.sqlite
 /miniature_dipinte/static/miniature_dipinte/immagini/
 /miniature_dipinte/static/css/
 /miniature_dipinte/static/fonts/
 /miniature_dipinte/static/js/
-/lara.txt
 171227
 180101
