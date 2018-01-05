@@ -7,26 +7,24 @@ L1 = ['Alti Elfi',
       'Stormcast Eternal',
       'Nani',
       'Kharadron Overlords',
-      # 'Silver Tower',
       ]
-L2 = ['Eldar',
+
+L2 = ['Craftworlds',
       'Angeli Oscuri',
       'Space Marine del Caos',
       'Space Wolves',
       'Orki',
       'Angeli Sanguinari',
       'Tiranidi',
-      # 'Officio Assassinorum',
-      # 'Ultramarines',
-      # 'Word Bearers',
       'Deathwatch',
       'Imperial Knights',
+      'Harlequins',
       'Thousand Sons',
       'Space Marines']
-# L3 = ['Tempesta di Magia', 'Dreadfleet']
+
 L4 = ['Elementi Scenici',           # 0
       'Board Game',                 # 1
-      'Avatar of War',              # 2 
+      'Avatar of War',              # 2
       'Confrontation',              # 3
       'Andrea Miniatures',          # 4
       'Miniaturas Beneito',         # 5
@@ -35,7 +33,7 @@ L4 = ['Elementi Scenici',           # 0
       'Bones',                      # 8
       'Maxmini',                    # 9
       'Bandai',                     # 10
-      'Black Dog',                  # 11 
+      'Black Dog',                  # 11
       'Masterclass',                # 12
       'Arcadia Quest',              # 13
       'Tamiya',                     # 14

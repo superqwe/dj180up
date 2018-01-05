@@ -40,7 +40,7 @@ class Miniatura(models.Model):
     inizio = models.DateField(null=True, blank=True)
     fine = models.DateField(null=True, blank=True)
     durata = models.IntegerField(null=True, blank=True,)
-    n_pezzi = models.IntegerField(null=True, blank=True)
+    n_pezzi = models.IntegerField(null=True, blank=True, default=1)
     immagine = models.ImageField(upload_to='immagini', null=True, blank=True)
     
     def __str__(self):
