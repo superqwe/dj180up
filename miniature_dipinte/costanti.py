@@ -20,7 +20,9 @@ L2 = ['Craftworlds',
       'Imperial Knights',
       'Harlequins',
       'Thousand Sons',
-      'Space Marines']
+      'Space Marines',
+      'Adeptus Mechanicus',
+      'Necrons']
 
 L4 = ['Elementi Scenici',           # 0
       'Board Game',                 # 1
