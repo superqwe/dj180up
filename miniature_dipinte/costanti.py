@@ -57,6 +57,7 @@ L4 = ['Elementi Scenici',           # 0
       'MiniArt',                    # 30
       'AFV Club',                   # 31
       'Eduard',                     # 32
+      'Romeo Models',               # 33
       ]
 
 NUMERO_TOTALE_DI_MINIATURE = 300  # arrotondare per eccesso
